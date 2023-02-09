@@ -6,24 +6,28 @@ describe('The user is able to download', function() {
     })
     
     it('and confirm files are part of file system', function() {
-        cy.visit('https://the-internet.herokuapp.com/download')
+        cy.visit('/download')
         cy.contains('File Downloader').should('be.visible')
-        //cy.contains('sample_file.txt').click()
-        cy.readFile("cypress/downloads/sample_file.txt").should('exist')
+
+        cy.window().document().then(function (doc) {
+            doc.addEventListener('click', () => {
+              setTimeout(function () { doc.location.reload() }, 5000)
+            })
+            cy.contains('data.txt').click()
+          })
+        cy.readFile('cypress/downloads/data.txt').should('exist')
  
     })
 })
 
 
 /*
-cy.readFile('.downloads/Drivinglicense.pdf').should('contain', 'XXX')
-cy.readFile('.downloads/test_img.jpg').should('contain', 'XXX')
-cy.readFile('.downloads/sample_file.txt').should('contain', 'XXX')
-cy.readFile('.downloads/tictactoe.jpg').should('contain', 'XXX')
+cy.contains('icon.png').click()
 cy.contains('Drivinglicense.pdf').click()
 cy.contains('test_img.jpg').click()
-cy.contains('sample_file.txt').click()
 cy.contains('tictactoe.jpg').click()
-cy.contains('icon.png').click()
-cy.readFile('.downloads/icon.png').should('contain', 'XXX')
+cy.readFile('.downloads/Drivinglicense.pdf').should(''exist')
+cy.readFile('.downloads/test_img.jpg').should('exist')
+cy.readFile('.downloads/sample_file.txt').should('exist')
+cy.readFile('.downloads/tictactoe.jpg').should('exist')
 */
