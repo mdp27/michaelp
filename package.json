@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "cypress": "^12.5.1"
+    "cypress": "^12.5.1",
+    "fs": "^0.0.2",
+    "fs-extra": "^11.1.0",
+    "typescript-cypress": "^1.0.5"
+  },
+  "devDependencies": {
+    "cypress-fail-on-console-error": "^4.0.2",
+    "typescript": "^4.9.5"
   }
 }
