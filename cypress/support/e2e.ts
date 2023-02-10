@@ -27,7 +27,8 @@ import failOnConsoleError from "cypress-fail-on-console-error"
       // log to Command Log and fail the test
       throw new Error(msg)
     })
-  })*/
+  })
+*/
 
   //Cypress.on('uncaught:exception', () => {
     //returning false here prevents Cypress from failing the tests
